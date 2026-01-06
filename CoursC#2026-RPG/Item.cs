@@ -1,6 +1,4 @@
-﻿using CoursC_2026_RPG.Core;
-
-namespace CoursC_2026_RPG
+﻿namespace CoursC_2026_RPG
 {
     public abstract class Item
     {

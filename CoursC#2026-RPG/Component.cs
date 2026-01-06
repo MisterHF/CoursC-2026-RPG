@@ -62,15 +62,15 @@ namespace CoursC_2026_RPG
         }
     }
 
-    public class Player
-    {
-        public IAttack Attack { get; set; }
-        public Weapon Weapon { get; set; }
+    //public class Player
+    //{
+    //    public IAttack Attack { get; set; }
+    //    public Weapon Weapon { get; set; }
 
-        public void DoAttack()
-        {
-            int damage = Attack.ExecuteAttack(Weapon);
-            Console.WriteLine($"Degat : {damage}");
-        }
-    }
+    //    public void DoAttack()
+    //    {
+    //        int damage = Attack.ExecuteAttack(Weapon);
+    //        Console.WriteLine($"Degat : {damage}");
+    //    }
+    //}
 }

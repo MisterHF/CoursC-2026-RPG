@@ -1,4 +1,4 @@
-﻿namespace CoursC_2026_RPG.Core
+﻿namespace CoursC_2026_RPG
 {
     public enum StatType
     {

@@ -22,7 +22,7 @@ namespace CoursC_2026_RPG.Map
                 TileType type =  TileTypes.Floor;
 
                 int roll = RandomNumber.Next(100);
-                type = roll < 70 ? TileTypes.Floor : TileTypes.Wall;
+                type = roll < 80 ? TileTypes.Floor : TileTypes.Wall;
                 
                 map.Tiles[x, y] = new Tile(type);
             }

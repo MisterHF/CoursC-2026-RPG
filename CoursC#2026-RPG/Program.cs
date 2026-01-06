@@ -8,9 +8,9 @@ namespace CoursC_2026_RPG
         GameStarted,
         GameRunning,
         GameOver
-        
+
     }
-    
+
     internal class Program
     {
         private static GameStatus GameStatus = GameStatus.GameStarted;
@@ -20,19 +20,8 @@ namespace CoursC_2026_RPG
 
         static void Main()
         {
-            //Entity entity = new Entity();
-            //entity.CreateEntity();
-            //entity.SetStatsEntity(StatType.Health, 100);
-
-            Weapon mySword = CreateWeapon.Create<Sword>("Epee",12);
-            mySword = new PoisonDecorator(mySword);
-            mySword = new FireDecorator(mySword);
-            Console.WriteLine(mySword.Name);
-            Console.WriteLine(mySword.Stats.Get(StatType.Damage));
-
-            while (GameRunning)
             Map = MapGenerator.Generate(10, 10, 0, 0);
-            
+
             Player = new Player(0, 0, Map);
             InputHandler = new InputHandler(Player);
 
@@ -41,7 +30,7 @@ namespace CoursC_2026_RPG
                 DrawMap();
                 GameStatus = GameStatus.GameRunning;
             }
-            
+
             if (GameStatus == GameStatus.GameOver)
             {
                 Console.WriteLine("Game Over");
@@ -50,15 +39,21 @@ namespace CoursC_2026_RPG
             while (GameStatus == GameStatus.GameRunning)
             {
                 ConsoleKey key = Console.ReadKey(true).Key;
-                
+
                 bool moved = InputHandler.HandleInput(key);
-                
+
                 if (moved)
                 {
                     Console.Clear();
                     DrawMap();
                 }
             }
+
+            //Weapon mySword = CreateWeapon.Create<Sword>("Epee", 12);
+            //mySword = new PoisonDecorator(mySword);
+            //mySword = new FireDecorator(mySword);
+            //Console.WriteLine(mySword.Name);
+            //Console.WriteLine(mySword.Stats.Get(StatType.Damage));
         }
 
         private static void DrawMap()
@@ -74,7 +69,6 @@ namespace CoursC_2026_RPG
                 }
                 Console.WriteLine();
             }
-
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     public enum StatType
     {
+        Name,
         Health,
         Damage,
         Defense,

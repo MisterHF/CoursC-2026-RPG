@@ -38,7 +38,7 @@ namespace CoursC_2026_RPG
     {
         public FireDecorator(Weapon weapon) : base(weapon)
         {
-            Console.WriteLine(" + Bonus feu");
+            Console.WriteLine($"{weapon.Name} : +5 dégâts Feu appliqués");
             weapon.Stats.Add(StatType.Damage, 5);
         }
     }
@@ -47,7 +47,7 @@ namespace CoursC_2026_RPG
     {
         public PoisonDecorator(Weapon weapon) : base(weapon)
         {
-            Console.WriteLine(" + Bonus poison");
+            Console.WriteLine($"{weapon.Name} : +3 dégâts poison appliqués");
             weapon.Stats.Add(StatType.Damage, 3);
         }
     }

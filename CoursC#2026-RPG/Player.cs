@@ -4,6 +4,9 @@ namespace CoursC_2026_RPG
 {
     public class Player
     {
+        public IAttack Attack{ get; set; }
+        public Weapon Weapon { get; set; }
+
         private int PlayerX;
         private int PlayerY;
 
@@ -19,5 +22,12 @@ namespace CoursC_2026_RPG
             PlayerY += y;
             Console.WriteLine($"Moving {PlayerX}, {PlayerY}");
         }
+
+        public void DoAttack()
+        {
+            int damage = Attack.ExecuteAttack(Weapon);
+            Console.WriteLine($"Dégâts infligés : {damage}");
+        }
+
     }
 }

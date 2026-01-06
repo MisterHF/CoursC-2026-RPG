@@ -17,11 +17,15 @@ namespace CoursC_2026_RPG
             //entity.CreateEntity();
             //entity.SetStatsEntity(StatType.Health, 100);
 
+            Weapon mySword = CreateWeapon.Create<Sword>("Epee",12);
+            mySword = new PoisonDecorator(mySword);
+            mySword = new FireDecorator(mySword);
+
             while (GameRunning)
             {
                 InputHandler.HandleInput();
             }
-           
+
         }
     }
 }

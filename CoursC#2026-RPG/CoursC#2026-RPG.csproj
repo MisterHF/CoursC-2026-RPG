@@ -59,6 +59,7 @@
     <Compile Include="Stats.cs" />
     <Compile Include="StatType.cs" />
     <Compile Include="Sword.cs" />
+    <Compile Include="Tile.cs" />
     <Compile Include="Weapon.cs" />
   </ItemGroup>
   <ItemGroup>

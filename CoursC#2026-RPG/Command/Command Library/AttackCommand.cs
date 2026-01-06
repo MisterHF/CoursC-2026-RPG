@@ -1,17 +1,19 @@
+﻿using System;
+
 namespace CoursC_2026_RPG
 {
-    public class MoveRightCommand : ICommand
+    public class AttackCommand : ICommand
     {
         private Player Player;
-        
-        public MoveRightCommand(Player player)
+
+        public AttackCommand(Player player)
         {
             Player = player;
         }
 
         public void Execute()
         {
-            Player.Move(1, 0);
+            Player.DoAttack(null);
         }
     }
 }

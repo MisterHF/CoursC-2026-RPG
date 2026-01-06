@@ -25,16 +25,27 @@ namespace CoursC_2026_RPG
         }
     }
 
-    public abstract class Weapon
+    public class SkillAttack : IAttack
     {
-        public abstract int GetDamage();
-    }
+        private int bonus;
 
+        public SkillAttack(int bonusDamage)
+        {
+            bonus = bonusDamage;
+        }
+
+        public int ExecuteAttack(Weapon weapon)
+        {
+            int damage = weapon.GetDamage() + bonus;
+            Console.WriteLine($"{weapon.Name} utilise une competence : {damage} degat");
+            return damage;
+        }
+    }
     public abstract class WeaponDecorator : Weapon
     {
         protected Weapon weapon;
 
-        protected WeaponDecorator(Weapon weapon)
+        protected WeaponDecorator(Weapon weapon) : base(weapon.Name, weapon.Stats)
         {
             this.weapon = weapon;
         }
@@ -42,35 +53,19 @@ namespace CoursC_2026_RPG
 
     public class FireDecorator : WeaponDecorator
     {
-        public FireDecorator(Weapon weapon) : base(weapon) { }
-
-        public override int GetDamage()
+        public FireDecorator(Weapon weapon) : base(weapon)
         {
-            Console.WriteLine("Feu");
-            return weapon.GetDamage() + 5;
+            Console.WriteLine($"{weapon.Name} : +5 dégâts Feu appliqués");
+            weapon.Stats.Add(StatType.Damage, 5);
         }
     }
 
     public class PoisonDecorator : WeaponDecorator
     {
-        public PoisonDecorator(Weapon weapon) : base(weapon) { }
-
-        public override int GetDamage()
+        public PoisonDecorator(Weapon weapon) : base(weapon)
         {
-            Console.WriteLine("Poison");
-            return weapon.GetDamage() + 3;
+            Console.WriteLine($"{weapon.Name} : +3 dégâts poison appliqués");
+            weapon.Stats.Add(StatType.Damage, 3);
         }
     }
-
-    //public class Player
-    //{
-    //    public IAttack Attack { get; set; }
-    //    public Weapon Weapon { get; set; }
-
-    //    public void DoAttack()
-    //    {
-    //        int damage = Attack.ExecuteAttack(Weapon);
-    //        Console.WriteLine($"Degat : {damage}");
-    //    }
-    //}
 }

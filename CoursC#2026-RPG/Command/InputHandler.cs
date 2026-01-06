@@ -14,17 +14,19 @@ namespace CoursC_2026_RPG
                 { ConsoleKey.Z, new MoveUpCommand(player) },
                 { ConsoleKey.S, new MoveDownCommand(player) },
                 { ConsoleKey.Q, new MoveLeftCommand(player) },
-                { ConsoleKey.D, new MoveRightCommand(player) }
+                { ConsoleKey.D, new MoveRightCommand(player) },
+                { ConsoleKey.E, new AttackCommand(player) }
             };
         }
 
-        public void HandleInput()
+        public bool HandleInput(ConsoleKey key)
         {
-            if (!Console.KeyAvailable) return;
-
-            var key = Console.ReadKey(true).Key;
             if (Commands.ContainsKey(key))
+            {
                 Commands[key].Execute();
+                return true;
+            }
+            return false;
         }
     }
 

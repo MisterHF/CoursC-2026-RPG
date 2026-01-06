@@ -1,14 +1,26 @@
 ﻿using System;
+using CoursC_2026_RPG.Map;
 
 namespace CoursC_2026_RPG
 {
+    public enum GameStatus
+    {
+        GameStarted,
+        GameRunning,
+        GameOver
+
+    }
+
     internal class Program
     {
-        private static bool GameRunning = true;
-        private static Player Player = new Player(0, 0);
-        private static InputHandler InputHandler = new InputHandler(Player);
+        private static GameStatus GameStatus = GameStatus.GameStarted;
+        private static Map.Map Map;
+        private static Player Player;
+        private static InputHandler InputHandler;
+
         static void Main()
         {
+            Map = MapGenerator.Generate(10, 10, 0, 0);
             FactoryNpc factoryNpc = new FactoryNpc();
             FactoryMonster factoryMonster = new FactoryMonster();
 
@@ -27,9 +39,62 @@ namespace CoursC_2026_RPG
             Console.WriteLine($"{npc.GetType().Name} - Health: {npc.Stats.Get(StatType.Health)}, Damage: {npc.Stats.Get(StatType.Damage)}");
 
 
-            while (GameRunning)
+            Player = new Player(0, 0, Map);
+            InputHandler = new InputHandler(Player);
+
+            if (GameStatus == GameStatus.GameStarted)
             {
-                InputHandler.HandleInput();
+                DrawMap();
+                GameStatus = GameStatus.GameRunning;
+            }
+
+            if (GameStatus == GameStatus.GameOver)
+            {
+                Console.WriteLine("Game Over");
+            }
+
+            while (GameStatus == GameStatus.GameRunning)
+            {
+                ConsoleKey key = Console.ReadKey(true).Key;
+
+                bool moved = InputHandler.HandleInput(key);
+
+                if (moved)
+                {
+                    Console.Clear();
+                    DrawMap();
+                }
+            }
+            Weapon sword = new Sword("Épée du dragon", 12);
+            sword = new PoisonDecorator(sword);
+            sword = new FireDecorator(sword);
+
+            Player player = new Player(0, 0)
+            {
+                Weapon = sword,
+                AttackStrategy = new NormalAttack()
+            };
+
+            Player enemy = new Player(5, 5);
+            enemy.Stats.Set(StatType.Defense, 8);
+
+            player.DoAttack(null); 
+            player.AttackStrategy = new CriticalAttack();
+            player.DoAttack(null); 
+        }
+
+        private static void DrawMap()
+        {
+            for (int y = 0; y < Map.Height; y++)
+            {
+                for (int x = 0; x < Map.Width; x++)
+                {
+                    if (x == Player.X && y == Player.Y)
+                        Console.Write('P');
+                    else
+                        Console.Write(Map.Tiles[x, y].Symbol);
+                }
+                Console.WriteLine();
             }
 
         }

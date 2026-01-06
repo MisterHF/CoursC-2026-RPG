@@ -8,6 +8,6 @@ namespace CoursC_2026_RPG
 {
     public class Pnj : Entity
     {
-
+        public override char Symbol => 'O';
     }
 }

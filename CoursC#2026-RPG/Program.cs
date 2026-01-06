@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using CoursC_2026_RPG.CoursC_2026_RPG;
 using CoursC_2026_RPG.Map;
 
 namespace CoursC_2026_RPG
@@ -40,6 +42,7 @@ namespace CoursC_2026_RPG
 
 
             Player = new Player(0, 0, Map);
+            EntityPlacer.PlaceEntities(Map, monsterCount: 2,npcCount: 1,monsterFactory: factoryMonster,npcFactory: factoryNpc);
             InputHandler = new InputHandler(Player);
 
             if (GameStatus == GameStatus.GameStarted)
@@ -90,13 +93,24 @@ namespace CoursC_2026_RPG
                 for (int x = 0; x < Map.Width; x++)
                 {
                     if (x == Player.X && y == Player.Y)
+                    {
                         Console.Write('P');
+                        continue;
+                    }
+
+                    Entity entity = Map.Entities.FirstOrDefault(e => e.X == x && e.Y == y);
+
+                    if (entity != null)
+                    {
+                        Console.Write(entity.Symbol);
+                    }
                     else
+                    {
                         Console.Write(Map.Tiles[x, y].Symbol);
+                    }
                 }
                 Console.WriteLine();
             }
-
         }
     }
 

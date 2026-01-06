@@ -11,6 +11,8 @@ namespace CoursC_2026_RPG
 
     public abstract class Entity : IEntity
     {
+        public abstract char Symbol { get; }
+        
         public IStats Stats => stats;
 
         private IStats stats;

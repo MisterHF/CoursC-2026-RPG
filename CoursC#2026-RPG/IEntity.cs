@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 
 namespace CoursC_2026_RPG
 {
@@ -10,6 +11,7 @@ namespace CoursC_2026_RPG
     public class Entity : IEntity
     {
         public IStats Stats { get; private set; }
+        public EntityType Type { get; private set; }
 
         public Entity()
         {
@@ -20,6 +22,11 @@ namespace CoursC_2026_RPG
         {
             Console.WriteLine("Entity created");
             return this;
+        }
+
+        public void SetType(EntityType type)
+        {
+            Type = type;
         }
 
 

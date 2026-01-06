@@ -13,9 +13,13 @@ namespace CoursC_2026_RPG
         private static InputHandler InputHandler = new InputHandler(Player);
         static void Main()
         {
-            //Entity entity = new Entity();
-            //entity.CreateEntity();
-            //entity.SetStatsEntity(StatType.Health, 100);
+            //IEntity monsterFactory = new Monster();
+            //Entity monster = monsterFactory.CreateEntity();
+            //monster.SetStatsEntity(StatType.Health, 100);
+
+            //IEntity npcFactory = new Pnj();
+            //Entity npc = monsterFactory.CreateEntity();
+            //npc.SetStatsEntity(StatType.Health, 20);
 
             while (GameRunning)
             {

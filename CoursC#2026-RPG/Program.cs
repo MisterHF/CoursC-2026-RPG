@@ -17,11 +17,20 @@ namespace CoursC_2026_RPG
             //entity.CreateEntity();
             //entity.SetStatsEntity(StatType.Health, 100);
 
-            Weapon mySword = CreateWeapon.Create<Sword>("Epee",12);
+            Weapon mySword = CreateWeapon.Create<Sword>("Épée du dragon", 12);
             mySword = new PoisonDecorator(mySword);
             mySword = new FireDecorator(mySword);
-            Console.WriteLine(mySword.Name);
-            Console.WriteLine(mySword.Stats.Get(StatType.Damage));
+
+            Player player = new Player(0, 0)
+            {
+                Weapon = mySword,
+                Attack = new NormalAttack()
+            };
+
+            player.DoAttack(); 
+
+            player.Attack = new CriticalAttack();
+            player.DoAttack(); 
 
             while (GameRunning)
             {

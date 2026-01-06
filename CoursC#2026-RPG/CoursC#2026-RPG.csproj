@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\Command Library\AttackCommand.cs" />
     <Compile Include="Command\Command Library\MoveDownCommand.cs" />
     <Compile Include="Command\Command Library\MoveLeftCommand.cs" />
     <Compile Include="Command\Command Library\MoveRightCommand.cs" />

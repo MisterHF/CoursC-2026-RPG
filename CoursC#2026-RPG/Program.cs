@@ -48,12 +48,22 @@ namespace CoursC_2026_RPG
                     DrawMap();
                 }
             }
+            Weapon sword = new Sword("Épée du dragon", 12);
+            sword = new PoisonDecorator(sword);
+            sword = new FireDecorator(sword);
 
-            //Weapon mySword = CreateWeapon.Create<Sword>("Epee", 12);
-            //mySword = new PoisonDecorator(mySword);
-            //mySword = new FireDecorator(mySword);
-            //Console.WriteLine(mySword.Name);
-            //Console.WriteLine(mySword.Stats.Get(StatType.Damage));
+            Player player = new Player(0, 0)
+            {
+                Weapon = sword,
+                AttackStrategy = new NormalAttack()
+            };
+
+            Player enemy = new Player(5, 5);
+            enemy.Stats.Set(StatType.Defense, 8);
+
+            player.DoAttack(null); 
+            player.AttackStrategy = new CriticalAttack();
+            player.DoAttack(null); 
         }
 
         private static void DrawMap()

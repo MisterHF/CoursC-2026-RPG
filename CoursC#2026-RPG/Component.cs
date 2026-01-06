@@ -24,6 +24,23 @@ namespace CoursC_2026_RPG
             return weapon.GetDamage() * 2;
         }
     }
+
+    public class SkillAttack : IAttack
+    {
+        private int bonus;
+
+        public SkillAttack(int bonusDamage)
+        {
+            bonus = bonusDamage;
+        }
+
+        public int ExecuteAttack(Weapon weapon)
+        {
+            int damage = weapon.GetDamage() + bonus;
+            Console.WriteLine($"{weapon.Name} utilise une competence : {damage} degat");
+            return damage;
+        }
+    }
     public abstract class WeaponDecorator : Weapon
     {
         protected Weapon weapon;

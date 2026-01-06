@@ -14,7 +14,8 @@ namespace CoursC_2026_RPG
                 { ConsoleKey.Z, new MoveUpCommand(player) },
                 { ConsoleKey.S, new MoveDownCommand(player) },
                 { ConsoleKey.Q, new MoveLeftCommand(player) },
-                { ConsoleKey.D, new MoveRightCommand(player) }
+                { ConsoleKey.D, new MoveRightCommand(player) },
+                { ConsoleKey.E, new AttackCommand(player) }
             };
         }
 

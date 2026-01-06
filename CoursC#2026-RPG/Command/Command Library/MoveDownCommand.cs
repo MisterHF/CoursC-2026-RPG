@@ -2,16 +2,16 @@ namespace CoursC_2026_RPG
 {
     public class MoveDownCommand : ICommand
     {
-        private Player _player;
+        private Player Player;
         
         public MoveDownCommand(Player player)
         {
-            _player = player;
+            player = player;
         }
 
         public void Execute()
         {
-            _player.Move(0, 1);
+            Player.Move(0, 1);
         }
     }
 }

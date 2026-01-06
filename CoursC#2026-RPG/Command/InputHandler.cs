@@ -5,11 +5,11 @@ namespace CoursC_2026_RPG
 {
     public class InputHandler
     {
-        private Dictionary<ConsoleKey, ICommand> _commands;
+        private Dictionary<ConsoleKey, ICommand> Commands;
 
         public InputHandler(Player player)
         {
-            _commands = new Dictionary<ConsoleKey, ICommand>
+            Commands = new Dictionary<ConsoleKey, ICommand>
             {
                 { ConsoleKey.Z, new MoveUpCommand(player) },
                 { ConsoleKey.S, new MoveDownCommand(player) },
@@ -23,8 +23,8 @@ namespace CoursC_2026_RPG
             if (!Console.KeyAvailable) return;
 
             var key = Console.ReadKey(true).Key;
-            if (_commands.ContainsKey(key))
-                _commands[key].Execute();
+            if (Commands.ContainsKey(key))
+                Commands[key].Execute();
         }
     }
 

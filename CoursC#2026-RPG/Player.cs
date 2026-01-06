@@ -4,20 +4,20 @@ namespace CoursC_2026_RPG
 {
     public class Player
     {
-        private int playerX;
-        private int playerY;
+        private int PlayerX;
+        private int PlayerY;
 
-        public Player(int _playerX, int _playerY)
+        public Player(int playerX, int playerY)
         {
-            playerX = _playerX;
-            playerY = _playerY;
+            PlayerX = playerX;
+            PlayerY = playerY;
         }
         
         public void Move(int x, int y)
         {
-            playerX += x;
-            playerY += y;
-            Console.WriteLine($"Moving {playerX}, {playerY}");
+            PlayerX += x;
+            PlayerY += y;
+            Console.WriteLine($"Moving {PlayerX}, {PlayerY}");
         }
     }
 }

@@ -1,16 +1,15 @@
-﻿using CoursC_2026_RPG.Core;
+﻿
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CoursC_2026_RPG
 {
     internal class Program 
     {
         static void Main(string[] args)
-        { 
+        {
+            //Cree une arme
+            //Weapon mySword = CreateWeapon.Create<Sword>("Épée du dragon", 12);
+            //mySword = new FireDecorator(mySword);
         }
     }
 }

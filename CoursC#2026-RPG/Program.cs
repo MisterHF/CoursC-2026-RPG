@@ -21,6 +21,22 @@ namespace CoursC_2026_RPG
         static void Main()
         {
             Map = MapGenerator.Generate(10, 10, 0, 0);
+            FactoryNpc factoryNpc = new FactoryNpc();
+            FactoryMonster factoryMonster = new FactoryMonster();
+
+            Monster monster = factoryMonster.AsMonster()
+                .WithStat(StatType.Health, 1000)
+                .WithStat(StatType.Damage, 30)
+                .Build();
+
+            Pnj npc = factoryNpc.AsNpc()
+                .WithStat(StatType.Health, 20)
+                .WithStat(StatType.Damage, 5)
+                .Build();
+
+            Console.WriteLine($"{monster.GetType().Name} - Health: {monster.Stats.Get(StatType.Health)}, Damage: {monster.Stats.Get(StatType.Damage)}");
+            Console.WriteLine($"{npc.GetType().Name} - Health: {npc.Stats.Get(StatType.Health)}, Damage: {npc.Stats.Get(StatType.Damage)}");
+
 
             Player = new Player(0, 0, Map);
             InputHandler = new InputHandler(Player);
@@ -79,6 +95,55 @@ namespace CoursC_2026_RPG
                 }
                 Console.WriteLine();
             }
+
+        }
+    }
+
+    public class FactoryNpc
+    {
+        private Pnj entity;
+
+        public FactoryNpc AsNpc()
+        {
+            entity = new Pnj();
+            entity.Stats.Set(StatType.Health, 1);
+            return this;
+        }
+
+        public FactoryNpc WithStat(StatType stat, int value)
+        {
+            entity.Stats.Set(stat, value);
+            return this;
+        }
+
+        public Pnj Build()
+        {
+            return entity;
+        }
+    }
+
+    public class FactoryMonster
+    {
+        private Monster entity;
+
+        public FactoryMonster AsMonster()
+        {
+            entity = new Monster();
+            entity.Stats.Set(StatType.Health, 1);
+            return this;
+        }
+
+        public FactoryMonster WithStat(StatType stat, int value)
+        {
+            entity.Stats.Set(stat, value);
+            return this;
+        }
+
+        public Monster Build()
+        {
+            return entity;
         }
     }
 }
+
+

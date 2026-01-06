@@ -50,6 +50,8 @@
     <Compile Include="Command\Command Library\MoveUpCommand.cs" />
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\InputHandler.cs" />
+    <Compile Include="Pnj.cs" />
+    <Compile Include="Monster.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="CreateWeapon.cs" />
     <Compile Include="IEntity.cs" />

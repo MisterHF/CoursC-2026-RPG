@@ -43,6 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICommand.cs" />
+    <Compile Include="InputHandler.cs" />
+    <Compile Include="MoveDownCommand.cs" />
+    <Compile Include="MoveLeftCommand.cs" />
+    <Compile Include="MoveRightCommand.cs" />
+    <Compile Include="MoveUpCommand.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

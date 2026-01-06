@@ -8,8 +8,15 @@ namespace CoursC_2026_RPG
 {
     internal class Program
     {
-        static void Main(string[] args)
+        private static bool gameRunning = true;
+        private static Player player = new Player(0, 0);
+        private static InputHandler inputHandler = new InputHandler(player);
+        static void Main()
         {
+            while (gameRunning)
+            {
+                inputHandler.HandleInput();
+            }
         }
     }
 }

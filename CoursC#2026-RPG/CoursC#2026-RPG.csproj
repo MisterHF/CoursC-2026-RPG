@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityType.cs" />
     <Compile Include="Pnj.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Component.cs" />

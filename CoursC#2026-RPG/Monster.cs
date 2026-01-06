@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace CoursC_2026_RPG
 {
-    public class Monster : IEntity
+    public class Monster : Entity
     {
-        public Entity CreateEntity()
-        {
-            Console.WriteLine("Monster Created");
-            Entity monster = new Entity();
-            monster.SetType(EntityType.Monster);
-            return monster;
-        }
+        
     }
 }

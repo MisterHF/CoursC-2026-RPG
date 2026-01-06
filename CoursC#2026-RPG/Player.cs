@@ -9,25 +9,50 @@ namespace CoursC_2026_RPG
 
         private int PlayerX;
         private int PlayerY;
+        private Map.Map CurrentMap;
 
-        public Player(int playerX, int playerY)
+        public Player(int playerX, int playerY, Map.Map map)
         {
             PlayerX = playerX;
             PlayerY = playerY;
+            CurrentMap = map;
         }
-        
+
         public void Move(int x, int y)
         {
-            PlayerX += x;
-            PlayerY += y;
-            Console.WriteLine($"Moving {PlayerX}, {PlayerY}");
+            int newX = PlayerX + x;
+            int newY = PlayerY + y;
+
+            if (CanMove(newX, newY))
+            {
+                PlayerX = newX;
+                PlayerY = newY;
+                Console.WriteLine($"Player moved to ({PlayerX}, {PlayerY})");
+            }
+            else
+            {
+                Console.WriteLine("Cannot move there!");
+            }
         }
 
         public void DoAttack()
         {
             int damage = Attack.ExecuteAttack(Weapon);
-            Console.WriteLine($"Dégâts infligés : {damage}");
+            Console.WriteLine($"Dï¿½gï¿½ts infligï¿½s : {damage}");
         }
 
+        private bool CanMove(int x, int y)
+        {
+            if (x < 0 || y < 0 || x >= CurrentMap.Width || y >= CurrentMap.Height)
+                return false;
+            
+            if (!CurrentMap.Tiles[x, y].Walkable)
+                return false;
+
+            return true;
+        }
+
+        public int X => PlayerX;
+        public int Y => PlayerY;
     }
 }

@@ -18,13 +18,14 @@ namespace CoursC_2026_RPG
             };
         }
 
-        public void HandleInput()
+        public bool HandleInput(ConsoleKey key)
         {
-            if (!Console.KeyAvailable) return;
-
-            var key = Console.ReadKey(true).Key;
             if (Commands.ContainsKey(key))
+            {
                 Commands[key].Execute();
+                return true;
+            }
+            return false;
         }
     }
 

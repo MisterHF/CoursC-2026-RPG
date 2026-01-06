@@ -43,16 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Component.cs" />
-    <Compile Include="CreateWeapon.cs" />
-    <Compile Include="ICommand.cs" />
-    <Compile Include="InputHandler.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="Map.cs" />
-    <Compile Include="MoveDownCommand.cs" />
-    <Compile Include="MoveLeftCommand.cs" />
-    <Compile Include="MoveRightCommand.cs" />
-    <Compile Include="MoveUpCommand.cs" />
+    <Compile Include="Command\Command Library\MoveDownCommand.cs" />
+    <Compile Include="Command\Command Library\MoveLeftCommand.cs" />
+    <Compile Include="Command\Command Library\MoveRightCommand.cs" />
+    <Compile Include="Command\Command Library\MoveUpCommand.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\InputHandler.cs" />
+    <Compile Include="Map\Map.cs" />
+    <Compile Include="Map\MapGenerator.cs" />
+    <Compile Include="Map\Tile.cs" />
+    <Compile Include="Map\TileType.cs" />
+    <Compile Include="Map\TileTypes.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

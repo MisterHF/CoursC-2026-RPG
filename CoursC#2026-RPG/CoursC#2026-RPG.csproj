@@ -50,7 +50,10 @@
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\InputHandler.cs" />
     <Compile Include="Map\Map.cs" />
+    <Compile Include="Map\MapGenerator.cs" />
     <Compile Include="Map\Tile.cs" />
+    <Compile Include="Map\TileType.cs" />
+    <Compile Include="Map\TileTypes.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

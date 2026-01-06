@@ -1,3 +1,5 @@
+using System;
+
 namespace CoursC_2026_RPG
 {
     public class MoveDownCommand : ICommand
@@ -6,7 +8,7 @@ namespace CoursC_2026_RPG
         
         public MoveDownCommand(Player player)
         {
-            player = player;
+            Player = player;
         }
 
         public void Execute()

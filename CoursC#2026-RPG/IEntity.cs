@@ -15,9 +15,14 @@ namespace CoursC_2026_RPG
 
         private IStats stats;
 
+        public int X { get; private set; }
+        public int Y { get; private set; }
+
         public Entity()
         {
             stats = new Stats();
+            X = 0;
+            Y = 0;
         }
 
         public Entity CreateEntity()
@@ -32,12 +37,11 @@ namespace CoursC_2026_RPG
             Console.WriteLine($"Stat {statType} définie à {value}");
         }
 
-        //public void TakeDamage(int damageAmount)
-        //{
-        //    int finalDamage = Math.Max(0, damageAmount - Stats.Get(StatType.Defense));
-        //    int currentHealth = Stats.Get(StatType.Health);
-        //    Stats.Set(StatType.Health, currentHealth - finalDamage);
-        //    Console.WriteLine("Je prends des dégâts");
-        //}
+        public void SetPosition(int x, int y)
+        {
+            X = x;
+            Y = y;
+            Console.WriteLine($"{this.GetType().Name} positionnée en ({X}, {Y})");
+        }
     }
 }

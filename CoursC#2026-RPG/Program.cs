@@ -12,6 +12,7 @@ namespace CoursC_2026_RPG
             FactoryNpc factoryNpc = new FactoryNpc();
             FactoryMonster factoryMonster = new FactoryMonster();
 
+
             Monster monster = factoryMonster.AsMonster()
                 .WithStat(StatType.Health, 1000)
                 .WithStat(StatType.Damage, 30)
@@ -51,6 +52,17 @@ namespace CoursC_2026_RPG
             return this;
         }
 
+        public FactoryNpc WithPosition(int x, int y)
+        {
+            entity.SetPosition(x, y);
+            return this;
+        }
+        public FactoryNpc WithItem(Item item, StatType stat, int value)
+        {
+            item.Stats.Set(stat, value);
+            return this;
+        }
+
         public Pnj Build()
         {
             return entity;
@@ -71,6 +83,17 @@ namespace CoursC_2026_RPG
         public FactoryMonster WithStat(StatType stat, int value)
         {
             entity.Stats.Set(stat, value);
+            return this;
+        }
+
+        public FactoryMonster WithPosition(int x, int y)
+        {
+            entity.SetPosition(x, y);
+            return this;
+        }
+        public FactoryMonster WithItem(Item item, StatType stat, int value)
+        {
+            item.Stats.Set(stat, value);
             return this;
         }
 

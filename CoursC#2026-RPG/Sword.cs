@@ -4,7 +4,7 @@
     {
         public Sword(string name, int damage) : base(name, new Stats())
         {
-
+            Stats.Set(StatType.Damage, damage);
         }
     }
 }

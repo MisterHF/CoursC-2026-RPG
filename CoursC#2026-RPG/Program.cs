@@ -20,6 +20,8 @@ namespace CoursC_2026_RPG
             Weapon mySword = CreateWeapon.Create<Sword>("Epee",12);
             mySword = new PoisonDecorator(mySword);
             mySword = new FireDecorator(mySword);
+            Console.WriteLine(mySword.Name);
+            Console.WriteLine(mySword.Stats.Get(StatType.Damage));
 
             while (GameRunning)
             {

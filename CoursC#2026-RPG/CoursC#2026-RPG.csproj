@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Component.cs" />
     <Compile Include="CreateWeapon.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="InputHandler.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MoveDownCommand.cs" />
